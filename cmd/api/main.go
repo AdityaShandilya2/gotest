@@ -14,4 +14,8 @@ func main() {
 
 	//repository
 	repository.Initialize()
+
+	//creating user and role
+	repository.CreateUserAndRole()
+
 }
