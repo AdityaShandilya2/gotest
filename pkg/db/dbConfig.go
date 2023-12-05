@@ -13,9 +13,8 @@ import (
 var DB *gorm.DB
 
 func init() {
-
-	if err := godotenv.Load(); err != nil {
-		log.Fatal("Error loading the env file")
+	if err := godotenv.Load(".env"); err != nil {
+		log.Fatal(err)
 	}
 
 	DB_HOST := os.Getenv("DB_HOST")
@@ -23,6 +22,8 @@ func init() {
 	DB_PASSWORD := os.Getenv("DB_PASSWORD")
 	DB_DBNAME := os.Getenv("DB_DBNAME")
 	DB_PORT := os.Getenv("DB_PORT")
+
+	//log.Println(DB_HOST, DB_USER, DB_PASSWORD, DB_DBNAME, DB_PORT)
 
 	Connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DBNAME, DB_PORT)
 }
